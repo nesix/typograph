@@ -58,7 +58,7 @@ class Spaces extends Base
     public function apply(string $text): string
     {
         return preg_replace_callback_array([
-            '/(\040|\t|\&nbsp\;|^)([a-zа-яё0-9]+)(\040|\t|\&nbsp\;)?\.([а-яёa-z]{5,})($|[^a-zа-яё])/iue' => function ($m) {
+            '/(\040|\t|\&nbsp\;|^)([a-zа-яё0-9]+)(\040|\t|\&nbsp\;)?\.([а-яёa-z]{5,})($|[^a-zа-яё])/iu' => function ($m) {
                 return $m[1].$m[2].'.'.($m[5] === '.' ? '' : ' ').$m[4].$m[5];
             },
 //            '/(\040|\t|\&nbsp\;|^)([a-zа-яё0-9]+)\.([а-яёa-z]{1,4})($|[^a-zа-яё])/iue' => function ($m) {
